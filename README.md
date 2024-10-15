@@ -37,6 +37,6 @@ In this game, the human player faces the computer, which makes automatic decisio
    Cd Tic-Tac-Toe
 3. Compile and run the game:
   ```bash
-gcc tic_tac_toe.c -o tic_tac_toe
+   gcc tic_tac_toe.c -o tic_tac_toe
    ./tic_tac_toe
 

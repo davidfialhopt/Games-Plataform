@@ -31,7 +31,12 @@ In this game, the human player faces the computer, which makes automatic decisio
 1. Clone the repository:
    ```bash
    git clone https://github.com/davidfialhopt/Tic-Tac-Toe.git
-2. Cd Tic-Tac-Toe
-3. gcc tic_tac_toe.c -o tic_tac_toe
+
+2. Change directory:
+   ```bash
+   Cd Tic-Tac-Toe
+3. Compile and run the game:
+  ```bash
+gcc tic_tac_toe.c -o tic_tac_toe
    ./tic_tac_toe
 

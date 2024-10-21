@@ -15,3 +15,12 @@ $(EXEC): $(OBJS)
 	$(CC) $(CFLAGS) -o $(EXEC) $(OBJS)
 
 # Compilação dos arquivos .o a partir dos .c
+functions.o: functions.c functions.h
+	$(CC) $(CFLAGS) -c functions.c
+
+game.o: game.c functions.h
+	$(CC) $(CFLAGS) -c game.c
+
+# Limpa os arquivos compilados
+clean:
+	rm -f $(OBJS) $(EXEC)

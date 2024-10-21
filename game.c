@@ -9,6 +9,7 @@ int main (void)
     do
     {
         play();
+        computer_play();
         printboard();
        
     } 

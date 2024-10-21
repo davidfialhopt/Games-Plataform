@@ -1,6 +1,7 @@
 #include "functions.h"
 #include <stdio.h>
 #include <stdbool.h>
+#include <time.h>
 
 const char PLAYER = 'X';
 const char COMPUTER = 'Y';
@@ -78,6 +79,16 @@ char play()
 
     return PLAYER; 
 }
+
+char computer_play()
+{
+    srand(time(0));
+    int x = (rand() % 3) + 1;
+    int y = (rand() % 3) + 1;
+    board[x][y] = COMPUTER;
+
+}
+
 bool winner()
 {
     for (int i = 0; i < 3; i++)

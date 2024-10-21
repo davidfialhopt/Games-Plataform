@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
+#include <stdlib.h>
 
 const char PLAYER = 'X';
 const char COMPUTER = 'Y';

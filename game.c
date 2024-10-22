@@ -21,12 +21,13 @@ int main (void)
     printboard();
     do
     {
-        play();
-        computer_play();
-        printboard();
-       
+        
+            play();
+            computer_play();
+            printboard();
+    
     } 
-    while (clear() == true || winner() == false);
+    while (clear() == true && winner() == false);
 
     winner();
 }
@@ -105,6 +106,11 @@ char computer_play()
     int x;
     int y;
 
+    if (clear() == false)
+    {    
+        return 1;
+    }
+    
     do
     {
         x = (rand() % 3) + 1;
@@ -113,7 +119,6 @@ char computer_play()
     } while (board[x - 1][y - 1] != ' ');
 
     board[x - 1][y - 1] = COMPUTER;
-    
     return COMPUTER;
 
 }
@@ -122,28 +127,35 @@ bool winner()
 {
     for (int i = 0; i < 3; i++)
     {
-        for (int j = 0; j < 3; j++)
-        {
-            if (board[i][j] == board[i][j + 1] == board[i][j + 2])
+        if (board[i][0] == board[i][1] &&  board[i][1] == board[i][2] && board [i][0] != ' ')
             {
-                printf("%c IS THE WINNER!\n", board[i][j]);
-                return true;
+                printf("%c IS THE WINNER!\n", board[i][0]);
+                return 0;
             }
-            else if (board[i][j] == board[i + 1][j] == board[i + 2][j])
-            {
-                printf("%c IS THE WINNER!\n", board[i][j]);
-                return true;
-            }
-            else if ((board[i][j] == board[i + 1][j + 1] == board[i + 2][j + 2]) || (board[i][j + 2] == board[i + 1][j + 1] == board[i + 2][j]))
-            {
-                printf("%c IS THE WINNER!\n", board[i][j]);
-                return true;
-
-            }
-        }
     }
+
+    for (int i = 0; i < 1; i++)
+    {
+            if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
+            {
+                printf("%c IS THE WINNER!\n", board[0][i]);
+                return 0;
+            }
+    }
+
+
+    if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' '))
+    {
+        printf("%c IS THE WINNER!\n", board[0][0]);
+        return 0;
+    }
+
+    if((board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' '))
+    {
+        printf("%c IS THE WINNER!\n", board[1][3]);
+        return 0;    
+    }
+    
     return false;
-
-
 }
 

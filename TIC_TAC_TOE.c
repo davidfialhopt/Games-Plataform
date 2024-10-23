@@ -11,7 +11,7 @@ char play();
 char computer_play();
 
 const char PLAYER = 'X';
-const char COMPUTER = 'Y';
+const char COMPUTER = 'O';
 char board [3][3];
 
 int main (void)

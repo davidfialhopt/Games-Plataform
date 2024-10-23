@@ -2,8 +2,12 @@
 #include <stdbool.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
+
 
 void printboard();
+void game();
+bool repeat();
 void resetboard();
 bool clear();
 bool winner();
@@ -19,8 +23,33 @@ int main (void)
     srand(time(0));
     resetboard();
     printboard();
+    
+    game();
+    
+
+    do
+    {
+        game();
+    }
+    while(repeat());
+
+
+
+return 0;
    
-    while(clear())
+}
+
+
+bool repeat()
+{
+    
+}
+
+
+
+void game()
+{
+     while(clear())
     {
         play();
         if(!clear() || winner() == true)
@@ -45,13 +74,9 @@ int main (void)
                 
             }
     printboard();
-    
-    
-    
-    
-    
-    return 0;
+
    
+    
 }
 
 void printboard()

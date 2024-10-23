@@ -27,11 +27,7 @@ int main (void)
     game();
     
 
-    do
-    {
-        game();
-    }
-    while(repeat());
+   
 
 
 

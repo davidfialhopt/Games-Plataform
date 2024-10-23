@@ -19,28 +19,38 @@ int main (void)
     srand(time(0));
     resetboard();
     printboard();
-    
-    while(clear() == true && !winner())
+   
+    while(clear())
     {
-        
-       
         play();
-        if(!clear() || winner())
+        if(!clear() || winner() == true)
             break;
       
         
         computer_play();
-        if(!clear() || winner())
+        if(!clear() || winner() == true)
             break;
         printboard();
-        
+
+        if(!clear() && !winner())
+            {
+                printf("IT´S A TIE!\n");
+                break;
+            }
     }
+    if(!clear() && !winner())
+            {
+                printf("IT´S A TIE!\n");
+                printf("\n");
+                
+            }
+    printboard();
     
-    if(!winner())
-        printf("IT´S A TIE!\n");
     
-        
-return 0;
+    
+    
+    
+    return 0;
    
 }
 
@@ -100,6 +110,15 @@ char play()
        {
        printf("Type Column Number [1-3]:  ");
        scanf("%i", &y);
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
+       printf("\n");
        }while(y != 1 && y != 2 && y != 3);
        
 
@@ -109,6 +128,7 @@ char play()
     else
     {
         printf("Space is already occupied! Choose an open space.\n");
+        printf("\n");
         return play();  
     }
 
@@ -119,9 +139,6 @@ char computer_play()
 {
     int x;
     int y;
-
-   
-   
     
     do
     {
@@ -132,7 +149,6 @@ char computer_play()
 
     board[x - 1][y - 1] = COMPUTER;
     return COMPUTER;
-
 }
 
 bool winner()
@@ -142,7 +158,9 @@ bool winner()
         if (board[i][0] == board[i][1] &&  board[i][1] == board[i][2] && board [i][0] != ' ')
             {
                 printf("%c IS THE WINNER!\n", board[i][0]);
-                return 0;
+                printf("\n");
+                printf("\n");
+                return true;
             }
     }
 
@@ -151,7 +169,9 @@ bool winner()
             if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
             {
                 printf("%c IS THE WINNER!\n", board[0][i]);
-                return 0;
+                printf("\n");
+                printf("\n");
+                return true;
             }
     }
 
@@ -159,13 +179,17 @@ bool winner()
     if ((board[0][0] == board[1][1] && board[1][1] == board[2][2] && board[0][0] != ' '))
     {
         printf("%c IS THE WINNER!\n", board[0][0]);
-        return 0;
+        printf("\n");
+        printf("\n");
+        return true;
     }
 
     if((board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' '))
     {
         printf("%c IS THE WINNER!\n", board[2][0]);
-        return 0;    
+        printf("\n");
+        printf("\n");
+        return true;    
     }
     
   

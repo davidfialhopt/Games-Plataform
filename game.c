@@ -19,17 +19,29 @@ int main (void)
     srand(time(0));
     resetboard();
     printboard();
-    do
+    
+    while(clear() == true && !winner())
     {
         
-            play();
-            computer_play();
-            printboard();
+       
+        play();
+        if(!clear() || winner())
+            break;
+      
+        
+        computer_play();
+        if(!clear() || winner())
+            break;
+        printboard();
+        
+    }
     
-    } 
-    while (clear() == true && winner() == false);
-
-    winner();
+    if(!winner())
+        printf("IT´S A TIE!\n");
+    
+        
+return 0;
+   
 }
 
 void printboard()
@@ -76,6 +88,8 @@ char play()
     int x;
     int y;
     
+
+    
        do
        {
        printf("Type Row Number [1-3]:  ");
@@ -106,10 +120,8 @@ char computer_play()
     int x;
     int y;
 
-    if (clear() == false)
-    {    
-        return 1;
-    }
+   
+   
     
     do
     {
@@ -134,7 +146,7 @@ bool winner()
             }
     }
 
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < 3; i++)
     {
             if (board[0][i] == board[1][i] && board[1][i] == board[2][i] && board[0][i] != ' ')
             {
@@ -152,10 +164,11 @@ bool winner()
 
     if((board[0][2] == board[1][1] && board[1][1] == board[2][0] && board[0][2] != ' '))
     {
-        printf("%c IS THE WINNER!\n", board[1][3]);
+        printf("%c IS THE WINNER!\n", board[2][0]);
         return 0;    
     }
     
+  
     return false;
 }
 

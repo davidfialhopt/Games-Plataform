@@ -2,8 +2,12 @@
 #include <stdbool.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
 
 void printboard();
+void game();
 void resetboard();
 bool clear();
 bool winner();
@@ -17,10 +21,34 @@ char board [3][3];
 int main (void)
 {
     srand(time(0));
-    resetboard();
-    printboard();
+    char answer;
+    
+    
+    
+    do
+    {
+        resetboard();
+        printboard();
+        game();
+
+      
+        printf("Would you like to play again? Y/N: ");
+        scanf(" %c", &answer);
+        answer = toupper(answer);
+
+    }
+    while(answer == 'Y');
+
+    printf("Thanks for playing!\n");
+
+
+return 0;
    
-    while(clear())
+}
+
+void game()
+{
+     while(clear())
     {
         play();
         if(!clear() || winner() == true)
@@ -45,13 +73,9 @@ int main (void)
                 
             }
     printboard();
-    
-    
-    
-    
-    
-    return 0;
+
    
+    
 }
 
 void printboard()
@@ -110,14 +134,6 @@ char play()
        {
        printf("Type Column Number [1-3]:  ");
        scanf("%i", &y);
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
        printf("\n");
        }while(y != 1 && y != 2 && y != 3);
        

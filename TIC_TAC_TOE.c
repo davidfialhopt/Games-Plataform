@@ -3,6 +3,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 
 void printboard();
@@ -21,10 +22,25 @@ char board [3][3];
 int main (void)
 {
     srand(time(0));
-    resetboard();
-    printboard();
+    char answer = '\0';
     
-    game();
+    
+    
+    do
+    {
+        resetboard();
+        printboard();
+        game();
+
+      
+        printf("Would you like to play again? Y/N: ");
+        scanf("%c", &answer);
+        answer = toupper(answer);
+
+    }
+    while(answer == 'Y');
+
+    
     
 
    
@@ -38,6 +54,14 @@ return 0;
 
 bool repeat()
 {
+    char *answer;
+    printf("Do you want to play again? yes/no: ");
+    scanf("%s", answer);
+
+    if (strcmp(answer, "yes") == 0)
+        return true;
+    else 
+        return false;
     
 }
 

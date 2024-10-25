@@ -5,7 +5,6 @@
 #include <string.h>
 #include <ctype.h>
 
-
 void printboard();
 void game();
 void resetboard();
@@ -23,27 +22,21 @@ int main (void)
     srand(time(0));
     char answer;
     
-    
-    
     do
     {
         resetboard();
         printboard();
         game();
 
-      
         printf("Would you like to play again? Y/N: ");
         scanf(" %c", &answer);
         answer = toupper(answer);
-
     }
     while(answer == 'Y');
 
     printf("Thanks for playing!\n");
-
-
-return 0;
-   
+    
+    return 0;
 }
 
 void game()
@@ -73,9 +66,6 @@ void game()
                 
             }
     printboard();
-
-   
-    
 }
 
 void printboard()
@@ -122,25 +112,21 @@ char play()
     int x;
     int y;
     
+    do
+    {
+        printf("Type Row Number [1-3]:  ");
+        scanf("%i", &x);
+    }while(x != 1 && x != 2 && x != 3);
 
-    
-       do
-       {
-       printf("Type Row Number [1-3]:  ");
-       scanf("%i", &x);
-       }while(x != 1 && x != 2 && x != 3);
-
-       do
-       {
-       printf("Type Column Number [1-3]:  ");
-       scanf("%i", &y);
-       printf("\n");
-       }while(y != 1 && y != 2 && y != 3);
+    do
+    {
+        printf("Type Column Number [1-3]:  ");
+        scanf("%i", &y);
+        printf("\n");
+    }while(y != 1 && y != 2 && y != 3);
        
-
-      if (board[x - 1][y - 1] == ' ') 
+    if (board[x - 1][y - 1] == ' ') 
         board[x - 1][y - 1] = PLAYER;  
-    
     else
     {
         printf("Space is already occupied! Choose an open space.\n");
@@ -196,7 +182,6 @@ bool winner()
     {
         printf("%c IS THE WINNER!\n", board[0][0]);
         printf("\n");
-        printf("\n");
         return true;
     }
 
@@ -204,11 +189,8 @@ bool winner()
     {
         printf("%c IS THE WINNER!\n", board[2][0]);
         printf("\n");
-        printf("\n");
         return true;    
     }
-    
-  
     return false;
 }
 

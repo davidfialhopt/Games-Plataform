@@ -8,7 +8,6 @@
 
 void printboard();
 void game();
-bool repeat();
 void resetboard();
 bool clear();
 bool winner();
@@ -22,7 +21,7 @@ char board [3][3];
 int main (void)
 {
     srand(time(0));
-    char answer = '\0';
+    char answer;
     
     
     
@@ -34,38 +33,18 @@ int main (void)
 
       
         printf("Would you like to play again? Y/N: ");
-        scanf("%c", &answer);
+        scanf(" %c", &answer);
         answer = toupper(answer);
 
     }
     while(answer == 'Y');
 
-    
-    
-
-   
-
+    printf("Thanks for playing!\n");
 
 
 return 0;
    
 }
-
-
-bool repeat()
-{
-    char *answer;
-    printf("Do you want to play again? yes/no: ");
-    scanf("%s", answer);
-
-    if (strcmp(answer, "yes") == 0)
-        return true;
-    else 
-        return false;
-    
-}
-
-
 
 void game()
 {
@@ -155,14 +134,6 @@ char play()
        {
        printf("Type Column Number [1-3]:  ");
        scanf("%i", &y);
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
-       printf("\n");
        printf("\n");
        }while(y != 1 && y != 2 && y != 3);
        
